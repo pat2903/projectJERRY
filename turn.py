@@ -26,12 +26,13 @@ steering_motor.run_to_rel_pos(position_sp=-90, speed_sp=500)
 
 sleep(1)
 
-motorB.stop(stop_action="coast")
-motorC.stop(stop_action="coast")
-
 # # To straighten the wheel, turn it 45 degrees to the right.
 # steering_motor.run_to_rel_pos(position_sp=-90, speed_sp=500)
 
 steering_motor.run_to_abs_pos(position_sp=0, speed_sp=500)
 
+sleep(1)
+
+motorB.stop(stop_action="coast")
+motorC.stop(stop_action="coast")
 steering_motor.stop(stop_action="coast")
