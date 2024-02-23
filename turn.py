@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import ev3dev.ev3 as ev3
 from ev3dev2.motor import LargeMotor, MediumMotor, SpeedPercent
 from time import sleep
