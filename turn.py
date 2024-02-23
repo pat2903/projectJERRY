@@ -7,8 +7,8 @@ motorB = LargeMotor(OUTPUT_B)
 motorC = LargeMotor(OUTPUT_C)
 
 # To run both motors at the same speed.
-motorB.run_forever(speed_sp=SpeedPercent(50))
-motorC.run_forever(speed_sp=SpeedPercent(50))
+motorB.run_forever(speed_sp=SpeedPercent(75))
+motorC.run_forever(speed_sp=SpeedPercent(25))
 
 sleep(4)
 
