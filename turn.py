@@ -10,13 +10,13 @@ motorC = LargeMotor('outC')
 steering_motor = MediumMotor('outA')
 
 # To run both motors at the same speed.
-motorB.run_forever(speed_sp=300)
-motorC.run_forever(speed_sp=300)
+motorB.run_forever(speed_sp=-300)
+motorC.run_forever(speed_sp=-300)
 
-# Don't know which way it's gonna turn w/ a positive angle. Let's find out :)
+# positive angle turns left
 steering_motor.run_to_rel_pos(position_sp=45, speed_sp=300)
 
-sleep(4)
+sleep(8)
 
 # Stop both motors.
 motorB.stop(stop_action="coast")
