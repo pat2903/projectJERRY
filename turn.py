@@ -21,7 +21,7 @@ steering_motor.run_to_rel_pos(position_sp=45, speed_sp=-500)
 sleep(3)
 
 # does this readjust it? idk
-steering_motor.run_to_rel_pos(position_sp=-45, speed_sp=-500)
+steering_motor.run_to_rel_pos(position_sp=0, speed_sp=-500)
 
 # Stop both motors.
 motorB.stop(stop_action="coast")
