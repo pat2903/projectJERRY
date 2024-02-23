@@ -1,11 +1,11 @@
 import ev3dev.ev3 as ev3
-from ev3dev2.motor import LargeMotor, MediumMotor, OUTPUT_A, OUTPUT_B, OUTPUT_C, SpeedPercent
+from ev3dev2.motor import LargeMotor, MediumMotor, SpeedPercent
 from time import sleep
 
 # Initialize the motors.
-motorB = LargeMotor(OUTPUT_B)
-motorC = LargeMotor(OUTPUT_C)
-steering_motor = MediumMotor(OUTPUT_A)
+motorB = LargeMotor('outB')
+motorC = LargeMotor('outC')
+steering_motor = MediumMotor('outA')
 
 # To run both motors at the same speed.
 motorB.run_forever(speed_sp=SpeedPercent(50))
