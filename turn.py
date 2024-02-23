@@ -16,9 +16,9 @@ motorC.run_forever(speed_sp=-500)
 # positive angle turns left
 steering_motor.run_to_rel_pos(position_sp=90, speed_sp=500)
 
-sleep(2)
+sleep(1)
 
-steering_motor.run_to_rel_pos(position_sp=-90, speed_sp=500)
+steering_motor.run_to_rel_pos(position_sp=0, speed_sp=500)
 
 sleep(1)
 
