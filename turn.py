@@ -16,12 +16,14 @@ motorC.run_forever(speed_sp=-500)
 sleep(1)
 
 # positive angle turns left
-steering_motor.run_to_rel_pos(position_sp=45, speed_sp=-500)
+steering_motor.run_to_rel_pos(position_sp=45, speed_sp=500)
 
 sleep(3)
 
-# does this readjust it? idk
-steering_motor.run_to_rel_pos(position_sp=0, speed_sp=-500)
+# To straighten the wheel, turn it 45 degrees to the right.
+steering_motor.run_to_rel_pos(position_sp=-45, speed_sp=500)
+
+sleep(1) 
 
 # Stop both motors.
 motorB.stop(stop_action="coast")
