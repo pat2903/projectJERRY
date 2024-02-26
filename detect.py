@@ -55,6 +55,7 @@ def run_and_detect(steering_motor, motor1, motor2, ir_sensor) -> None:
             is_running = False
 
         while state == "t":
+            print("t: %s" % get_ir_value(ir_sensor))
             if get_ir_value(ir_sensor) <= 10:
                 state = "s"
             elif get_ir_value(ir_sensor) > 50:
@@ -62,6 +63,7 @@ def run_and_detect(steering_motor, motor1, motor2, ir_sensor) -> None:
                 state = "f"
 
         while state == "f":
+            print("f: %s" % get_ir_value(ir_sensor))
             if get_ir_value(ir_sensor) <= 10:
                 state = "s"
             elif get_ir_value(ir_sensor) <= 50:
