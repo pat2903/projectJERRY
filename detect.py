@@ -23,5 +23,6 @@ def run_and_detect(steering_motor, motor1, motor2, ir_sensor) -> None:
         elif ir_value <= 50:
             turn_steering(steering_motor, angle=90, speed=500)
         else:
+            reset_steering(steering_motor)
             move_motor_forever(motor1, -500)
             move_motor_forever(motor2, -500)
