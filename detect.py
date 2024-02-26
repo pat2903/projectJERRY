@@ -6,7 +6,6 @@ from turn import reset_steering, turn_steering, get_current_steering_motor_pos
 
 
 def run_and_detect(steering_motor, motor1, motor2, ir_sensor) -> None:
-    # reset_range = [x for x in range(-10, 11)]
     cumulative_angle = 0
     # reset steering motor before starting
     reset_steering(steering_motor)
@@ -30,10 +29,37 @@ def run_and_detect(steering_motor, motor1, motor2, ir_sensor) -> None:
             print('turning')
             turn_steering(steering_motor, angle=90, speed=500)
             cumulative_angle += 90
+            sleep(2)
         else:
             print(get_current_steering_motor_pos(steering_motor))
-            # if (get_current_steering_motor_pos(steering_motor) not in reset_range):
             if (cumulative_angle != 0):
                 reset_steering(steering_motor)
                 cumulative_angle -= 90
+
+def run_and_detect(steering_motor, motor1, motor2, ir_sensor) -> None:
+    state = "f"
+    # reset steering motor before starting
+    reset_steering(steering_motor)
+    sleep(1)
+
+    move_motor_forever(motor1, -500)
+    move_motor_forever(motor2, -500)
+
+    is_running = True
+    while is_running:
+        if get_ir_value(ir_sensor) <= 10:
+            reset_steering(steering_motor)
+            state = "s"
+            is_running = False
+        
+        while state == "t":
+            if get_ir_value(ir_sensor) > 50:
+                reset_steering(steering_motor)
+                state = "f"
+
+        while state == "f":
+            if get_ir_value(ir_sensor) <= 50:
+                turn_steering(steering_motor, angle=90, speed=500)
+                state = "t"
+        
 
