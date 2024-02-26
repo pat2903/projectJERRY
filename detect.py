@@ -65,6 +65,7 @@ def run_and_detect(steering_motor, motor1, motor2, ir_sensor) -> None:
         while state == "f":
             print("f: %s" % get_ir_value(ir_sensor))
             if get_ir_value(ir_sensor) <= 10:
+                print("f i: %s" % get_ir_value(ir_sensor))
                 state = "s"
             elif get_ir_value(ir_sensor) <= 50:
                 turn_steering(steering_motor, angle=90, speed=500)
