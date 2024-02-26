@@ -11,9 +11,13 @@ def run_and_detect(steering_motor, motor1, motor2, ir_sensor) -> None:
     reset_steering(steering_motor)
     sleep(1)
 
+    move_motor_forever(motor1, -500)
+    move_motor_forever(motor2, -500)
+
     is_running = True
     while is_running:
         ir_value = get_ir_value(ir_sensor)
+        print("ir: " + ir_value)
 
         if ir_value <= 10:
             reset_steering(steering_motor)
@@ -24,8 +28,6 @@ def run_and_detect(steering_motor, motor1, motor2, ir_sensor) -> None:
         elif ir_value <= 50:
             turn_steering(steering_motor, angle=90, speed=500)
         else:
+            print(get_current_steering_motor_pos(steering_motor))
             if (get_current_steering_motor_pos(steering_motor) not in reset_range):
-                print(get_current_steering_motor_pos(steering_motor))
                 reset_steering(steering_motor)
-            move_motor_forever(motor1, -500)
-            move_motor_forever(motor2, -500)
