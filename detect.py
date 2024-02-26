@@ -27,6 +27,7 @@ def run_and_detect(steering_motor, motor1, motor2, ir_sensor) -> None:
             stop_motor(motor2, action="brake")
             is_running = False
         elif ir_value <= 50:
+            print('turning')
             turn_steering(steering_motor, angle=90, speed=500)
             cumulative_angle += 90
         else:
