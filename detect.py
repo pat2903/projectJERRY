@@ -45,7 +45,7 @@ def run_and_detect(steering_motor, motor1, motor2, ir_sensor) -> None:
     move_motor_forever(motor1, -500)
     move_motor_forever(motor2, -500)
 
-    is_running = True
+    is_running = False
     while is_running:
         if get_ir_value(ir_sensor) <= 10:
             reset_steering(steering_motor)
