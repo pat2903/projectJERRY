@@ -45,15 +45,7 @@ def run_and_detect(steering_motor, motor1, motor2, ir_sensor) -> None:
     move_motor_forever(motor1, -500)
     move_motor_forever(motor2, -500)
 
-    is_running = True
-    while is_running:
-        if state == "s":
-            reset_steering(steering_motor)
-            sleep(1)
-            stop_motor(motor1, action="brake")
-            stop_motor(motor2, action="brake")
-            is_running = False
-
+    while state != "s":
         while state == "t":
             print("t: %s" % get_ir_value(ir_sensor))
             if get_ir_value(ir_sensor) <= 10:
@@ -63,10 +55,13 @@ def run_and_detect(steering_motor, motor1, motor2, ir_sensor) -> None:
                 state = "f"
 
         while state == "f":
-            print("f: %s" % get_ir_value(ir_sensor))
             if get_ir_value(ir_sensor) <= 10:
-                print("f i: %s" % get_ir_value(ir_sensor))
                 state = "s"
             elif get_ir_value(ir_sensor) <= 50:
                 turn_steering(steering_motor, angle=90, speed=500)
                 state = "t"
+    else:
+        reset_steering(steering_motor)
+        sleep(1)
+        stop_motor(motor1, action="brake")
+        stop_motor(motor2, action="brake")
