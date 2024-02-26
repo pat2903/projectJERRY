@@ -17,7 +17,7 @@ def run_and_detect(steering_motor, motor1, motor2, ir_sensor) -> None:
     is_running = True
     while is_running:
         ir_value = get_ir_value(ir_sensor)
-        print("ir: " + ir_value)
+        print(f"ir: {ir_value}")
 
         if ir_value <= 10:
             reset_steering(steering_motor)
