@@ -39,7 +39,9 @@ from turn import reset_steering, turn_steering, get_current_steering_motor_pos
 def run_and_detect(steering_motor, motor1, motor2, ir_sensor) -> None:
     state = "f"
     # reset steering motor before starting
+    print(get_current_steering_motor_pos(steering_motor))
     reset_steering(steering_motor)
+    print(get_current_steering_motor_pos(steering_motor))
     sleep(1)
 
     move_motor_forever(motor1, -500)
