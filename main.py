@@ -20,11 +20,11 @@ def main() -> None:
     motorC = LargeMotor('outC')
 
     # run_and_detect(steering_motor, motorB, motorC, ir_sensor)
-    # canoe_turn(steering_motor, motorB, motorC)
+    canoe_turn(steering_motor, motorB, motorC)
 
-    turn_steering(steering_motor, -90, 100)
-    move_motor_forward_timed(motorB, 5000, -400)
-    move_motor_forward_timed(motorC, 5000, -400)
+    # turn_steering(steering_motor, -90, 100)
+    # move_motor_forward_timed(motorB, 5000, -400)
+    # move_motor_forward_timed(motorC, 5000, -400)
     
 
 
