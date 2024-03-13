@@ -18,7 +18,7 @@ def main() -> None:
     motorC = LargeMotor('outC')
 
     # run_and_detect(steering_motor, motorB, motorC, ir_sensor)
-    canoe_turn(steering_motor, motorC, motorB)
+    canoe_turn(steering_motor, motorB, motorC)
 
 
 if __name__ == "__main__":
