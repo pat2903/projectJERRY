@@ -1,7 +1,6 @@
 import ev3dev.ev3 as ev3
-from typing import final
 
-colour_codes : final = {
+colour_codes = {
     0: 'No colour',
     1: 'Black',
     2: 'Blue',
