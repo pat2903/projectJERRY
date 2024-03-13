@@ -7,5 +7,5 @@ def canoe_turn(steering_motor, motorB, motorC):
     sleep(2)
     move_motor_forward_timed(motorB, 5000, -400)
     move_motor_forward_timed(motorC, 5000, 100)
-    sleep(2)
-    reset_steering(steering_motor)
+    #sleep(2)
+    #reset_steering(steering_motor)
