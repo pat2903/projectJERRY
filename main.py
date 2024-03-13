@@ -4,6 +4,7 @@ import ev3dev.ev3 as ev3
 from ev3dev2.motor import LargeMotor, MediumMotor
 
 from detect import run_and_detect
+from canoe_turn import canoe_turn
             
 
 def main() -> None:
@@ -16,7 +17,8 @@ def main() -> None:
     motorB = LargeMotor('outB')
     motorC = LargeMotor('outC')
 
-    run_and_detect(steering_motor, motorB, motorC, ir_sensor)
+    # run_and_detect(steering_motor, motorB, motorC, ir_sensor)
+    canoe_turn(steering_motor, motorB, motorC)
 
 
 if __name__ == "__main__":
