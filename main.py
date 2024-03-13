@@ -23,8 +23,8 @@ def main() -> None:
     # canoe_turn(steering_motor, motorB, motorC)
 
     turn_steering(steering_motor, -90, 100)
-    move_motor_forward_timed(motorB, 5000, 400)
-    move_motor_forward_timed(motorC, 5000, 400)
+    move_motor_forward_timed(motorB, 5000, -400)
+    move_motor_forward_timed(motorC, 5000, -400)
     
 
 
