@@ -21,10 +21,10 @@ def main() -> None:
     # us_sensor.mode = 'US-DIST-CM'
 
     # # initialise gyro sensor
-    # gyro_sensor = ev3.GyroSensor('in4') 
-    # gyro_sensor.mode = 'GYRO-RATE'
-    # # sleep(1.5)
-    # gyro_sensor.mode = 'GYRO-ANG'
+    gyro_sensor = ev3.GyroSensor('in4') 
+    gyro_sensor.mode = 'GYRO-RATE'
+    # sleep(1.5)
+    gyro_sensor.mode = 'GYRO-ANG'
     # gyro_sensor.angle = 0
     # gyro_sensor.reset()
     # sleep(1)
@@ -34,7 +34,7 @@ def main() -> None:
     motorB = LargeMotor('outB')
     motorC = LargeMotor('outC')
 
-    canoe_turn(motorB, motorC)
+    canoe_turn(motorB, motorC, 90, gyro_sensor)
 
     # run_and_detect(steering_motor, motorB, motorC, us_sensor)
 
