@@ -1,6 +1,4 @@
-import ev3dev.ev3 as ev3
-
-colour_codes = {
+COLOR_CODES = {
     0: 'No colour',
     1: 'Black',
     2: 'Blue',
@@ -11,9 +9,7 @@ colour_codes = {
     7: 'Brown'
 }
 
-def colour_detector():
-    colour_sensor = ev3.ColorSensor('in4')
-    colour_sensor.mode = 'COL-COLOR'
+def detect_colour(colour_sensor):
     while(colour_sensor.color != colour_sensor.COLOR_BLUE):
         colour_value = colour_sensor.value()
-        print("Detected " + colour_codes[colour_value])
+        print("Detected " + COLOR_CODES[colour_value])
