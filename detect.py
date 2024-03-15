@@ -6,7 +6,7 @@ from turn import reset_steering, turn_steering, get_current_steering_motor_pos
 from machine_state import MachineState
 
 
-def run_and_detect(steering_motor, motor1, motor2, ir_sensor) -> None:
+def run_and_detect(steering_motor, motor1, motor2, us_sensor) -> None:
     current_state = MachineState.RUNNING
     steering_motor.position = 0
     # reset steering motor before starting
@@ -17,16 +17,16 @@ def run_and_detect(steering_motor, motor1, motor2, ir_sensor) -> None:
 
     while current_state != MachineState.STOPPED:
         while current_state == MachineState.TURNING:
-            if get_ir_value(ir_sensor) <= 10:
+            if get_ir_value(us_sensor) <= 10:
                 current_state = MachineState.STOPPED
-            elif get_ir_value(ir_sensor) > 50:
+            elif get_ir_value(us_sensor) > 50:
                 reset_steering(steering_motor)
                 current_state = MachineState.RUNNING
 
         while current_state == MachineState.RUNNING:
-            if get_ir_value(ir_sensor) <= 10:
+            if get_ir_value(us_sensor) <= 10:
                 current_state = MachineState.STOPPED
-            elif get_ir_value(ir_sensor) <= 50:
+            elif get_ir_value(us_sensor) <= 50:
                 turn_steering(steering_motor, angle=90, speed=500)
                 current_state = MachineState.TURNING
     else:
