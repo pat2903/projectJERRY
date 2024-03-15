@@ -10,7 +10,7 @@ def canoe_turn(motorB, motorC, turn_angle, gyro: ev3.GyroSensor):
     print("Target angle: %s", target_angle)
     while True:
         print("Current angle: %s", gyro.value())
-        if target_angle - 3 <= gyro.value <= target_angle + 3:
+        if target_angle - 3 <= gyro.value() <= target_angle + 3:
             stop_motor(motorB, "brake")
             stop_motor(motorC, "brake")
             break
